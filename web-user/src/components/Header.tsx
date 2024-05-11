@@ -10,7 +10,7 @@ import {
 
 export default function Header() {
   return (
-    <Navbar>
+    <Navbar className="shadow-md bg-[#5C7042] fixed">
       <NavbarBrand>
         {/* <AcmeLogo /> */}
         <p className="font-bold text-inherit">ACME</p>
