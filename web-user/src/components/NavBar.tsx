@@ -2,6 +2,7 @@
 import {
   Image,
   Link,
+  Menu,
   Navbar,
   NavbarContent,
   NavbarItem,
@@ -9,8 +10,18 @@ import {
 } from "@nextui-org/react";
 import NextImage from "next/image";
 
+interface Menu {
+  Name: string;
+  Link: string;
+}
 export default function NavBar() {
-  const menuList = ["Home", "Service", "Package", "Galler", "Contact Us"];
+  const menuList: Menu[] = [
+    { Name: "Home", Link: "first-section" },
+    { Name: "Service", Link: "second-section" },
+    { Name: "Package", Link: "/package" },
+    { Name: "Galler", Link: "/galler" },
+    { Name: "Contact Us", Link: "/contact-us" }
+  ];
 
   return (
     // <Navbar className="shadow-md bg-[#5C7042] fixed bg-[#f4f4f5]" classNames={{wrapper: 'w-full'}}>
@@ -24,8 +35,8 @@ export default function NavBar() {
         <Image
           as={NextImage}
           radius="none"
-          width={80}
-          height={80}
+          width={100}
+          height={100}
           src="/logo.svg"
           alt="NextUI hero Image"
         />
@@ -40,10 +51,10 @@ export default function NavBar() {
             <Link
               isBlock
               color="foreground"
-              className=" text-xs"
-              href={`#${item.toLowerCase()}`}
+              className="sm:text-sm font-semibold text-xs"
+              href={`#${item.Link.toLowerCase()}`}
             >
-              {item}
+              {item.Name}
             </Link>
           </NavbarItem>
         ))}
